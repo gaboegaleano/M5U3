@@ -1,0 +1,57 @@
+<div class="container" style="margin-top: 100 px">
+    {{!-- fila 1 --}}
+    <div class="row">
+        <div class="col">
+            <p style="float:right; margin-top: 80px">
+                <span>Hola {{persona}}!</span>
+                <a href="/admin/login/logout" class="btn btn-danger">Cerrar Sesion <i
+                        class="fa-sharp fa-solid fa-right-from-bracket"></i></a>
+            </p>
+        </div>
+    </div>
+    {{!-- Fin fila 1 --}}
+
+    {{!-- fila 2 --}}
+    <div class="row">
+        <div class="col">
+            <p style="float:right; margin-top: 20px">
+                <span>Novedades</span>
+                <a href="/admin/novedades/agregar" class="btn btn-success">Agregar <i class="fa-solid fa-plus"></i></a>
+            </p>
+        </div>
+    </div>
+    {{!-- Fin fila 2 --}}
+    {{!-- Inicio Tabla --}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Título</th>
+                <th scope="col">Subtitulo</th>
+                <th scope="col">Detalle</th>
+                <th scope="col">Imagen</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {{#each novedades}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{titulo}}</td>
+                <td>{{subtitulo}}</td>
+                <td>{{detalle}}</td>
+                <td>{{{imagen}}}</td>
+                <td class="text-right">
+                    <a href="/admin/novedades/modificar/{{id}}" type="button" class="btn btn-secondary"><i
+                            class="fa-solid fa-pencil"></i></a>
+                </td>
+                <td><a type="button" href="/admin/novedades/eliminar/{{id}}" class="btn btn-secondary"><i
+                            class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{!-- Fin Tabla --}}
+</div> {{!-- Fin container --}}
